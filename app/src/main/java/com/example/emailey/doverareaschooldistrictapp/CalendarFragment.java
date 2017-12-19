@@ -129,7 +129,7 @@ public class CalendarFragment extends Fragment {
     }
 
     private class EventAdapter extends BaseAdapter implements ListAdapter { // Setting the list adapter for the Events List
-        private LayoutInflater inflater
+        private LayoutInflater inflater;
             
             /* There are many empty methods below, they are just there to satisfy the ListAdapter interface
              * 
@@ -179,6 +179,20 @@ public class CalendarFragment extends Fragment {
                 View root = inflater.inflate(R.layout.event_bubble, parent, false);
                 ((TextView) root.findViewById(R.id.event_bubble_title)).setText(currentEventsList.get(position).getTitle());
                 root.setBackgroundColor(currentEventsList.get(position).getEventColor()); // Set the event bubble's background to the color specified by the Event object
+                class Blarg implements View.OnClickListener {
+                    @Override
+                    public void onClick(View view) {
+
+                        //Add a property to the View to reference to get the EventInfo
+                    }
+                }
+                root.setOnClickListener(new Blarg());
+                 /*
+                 * Add a touch/click event listener here to call to a event handler function
+                 * See what data is passed to the handler function to tell what event was selected
+                 * Grab the Event data and show a popup
+                 * YEET
+                 */
                 return root;
             }
 
