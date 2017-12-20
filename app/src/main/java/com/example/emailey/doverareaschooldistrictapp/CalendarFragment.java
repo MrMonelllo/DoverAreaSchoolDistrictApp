@@ -31,6 +31,8 @@ import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
 
+import static java.lang.System.in;
+
 /**
  * Created by tsengia on 5/5/2017.
  */
@@ -182,16 +184,17 @@ public class CalendarFragment extends Fragment {
                 class Blarg implements View.OnClickListener {
                     @Override
                     public void onClick(View view) {
+                        // for (Date) in CalendarManifest {
 
+                        }
                         //Add a property to the View to reference to get the EventInfo
-                    }
+
                 }
                 root.setOnClickListener(new Blarg());
                  /*
                  * Add a touch/click event listener here to call to a event handler function
                  * See what data is passed to the handler function to tell what event was selected
                  * Grab the Event data and show a popup
-                 * YEET
                  */
                 return root;
             }

@@ -2,6 +2,7 @@ package com.example.emailey.doverareaschooldistrictapp;
 
 import android.graphics.Color;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Dictionary;
@@ -18,6 +19,7 @@ class Event {
     private Date endDate; //ending date of the event
     private String description = "This is an example description for a calendar event.";
     private int eventColor = Color.RED; // This will be the background color of the event bubble when viewed on the calendar
+    ArrayList<String> EventList = new ArrayList<>();
     public Dictionary dictionaryEvent;
 
     public String getTitle() {
