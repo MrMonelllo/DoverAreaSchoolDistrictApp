@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Dictionary;
+import java.util.Enumeration;
 
 /**
  * Created by tsengia on 5/4/2017.
@@ -31,11 +32,17 @@ class Event {
     }
 
     public void setEventColor(int color) {
+        if (dictionaryEvent==null){
+            createDictionary();
+        }
         this.eventColor = color;
         dictionaryEvent.put("school", color);
     }
 
     public void setTitle(String title) {
+        if (dictionaryEvent==null){
+            createDictionary();
+        }
         this.title = title;
         dictionaryEvent.put("title", title);
     }
@@ -45,6 +52,9 @@ class Event {
     }
 
     public void setDescription(String description) {
+        if (dictionaryEvent==null){
+            createDictionary();
+        }
         this.description = description;
         dictionaryEvent.put("desc", description);
     }
@@ -54,6 +64,9 @@ class Event {
     }
 
     public void setDate(Date date) {
+        if (dictionaryEvent==null){
+            createDictionary();
+        }
         this.date = date;
         dictionaryEvent.put("sDate", date);
     }
@@ -63,6 +76,9 @@ class Event {
     }
 
     public void setEndDate(Date ending) {
+        if (dictionaryEvent==null){
+            createDictionary();
+        }
         this.endDate = ending;
         dictionaryEvent.put("eDate", ending);
     }
@@ -70,6 +86,45 @@ class Event {
     public Event(String title, Date date) { // Title and starting date is needed in this constructor
         this.title = title;
         this.date = date;
+    }
+
+    public void createDictionary(){
+        dictionaryEvent = new Dictionary() {
+            @Override
+            public int size() {
+                return 0;
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return false;
+            }
+
+            @Override
+            public Enumeration keys() {
+                return null;
+            }
+
+            @Override
+            public Enumeration elements() {
+                return null;
+            }
+
+            @Override
+            public Object get(Object o) {
+                return null;
+            }
+
+            @Override
+            public Object put(Object o, Object o2) {
+                return null;
+            }
+
+            @Override
+            public Object remove(Object o) {
+                return null;
+            }
+        };
     }
 
 }

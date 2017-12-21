@@ -1,11 +1,21 @@
 package com.example.emailey.doverareaschooldistrictapp;
 
+import android.app.AlertDialog;
+import android.app.DialogFragment;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.database.DataSetObserver;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.AnimatorRes;
+import android.support.annotation.IdRes;
+import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
+import android.support.annotation.StyleRes;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +26,11 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import java.io.FileDescriptor;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -177,20 +190,21 @@ public class CalendarFragment extends Fragment {
             }
 
             @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
+            public View getView(final int position, View convertView, ViewGroup parent) {
                 View root = inflater.inflate(R.layout.event_bubble, parent, false);
                 ((TextView) root.findViewById(R.id.event_bubble_title)).setText(currentEventsList.get(position).getTitle());
                 root.setBackgroundColor(currentEventsList.get(position).getEventColor()); // Set the event bubble's background to the color specified by the Event object
-                class Blarg implements View.OnClickListener {
+                root.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        // for (Date) in CalendarManifest {
-
-                        }
-                        //Add a property to the View to reference to get the EventInfo
-
-                }
-                root.setOnClickListener(new Blarg());
+                        Log.i ("click", currentEventsList.get(position).getTitle());
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setMessage(currentEventsList.get(position).getDescription())
+                                .setTitle(currentEventsList.get(position).getTitle());
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                    }
+                });
                  /*
                  * Add a touch/click event listener here to call to a event handler function
                  * See what data is passed to the handler function to tell what event was selected
@@ -252,4 +266,5 @@ public class CalendarFragment extends Fragment {
         refreshViewEvents();
         return root;
     }
+
 }
