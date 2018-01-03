@@ -32,11 +32,11 @@ class Event {
     }
 
     public void setEventColor(int color) {
-        if (dictionaryEvent==null){
+        if (dictionaryEvent==null){ // Prevents a crash by making a new dictionary if it returns null
             createDictionary();
         }
         this.eventColor = color;
-        dictionaryEvent.put("school", color);
+        dictionaryEvent.put("school", color); // Places the string "school" into the dictionary with the data type color.
     }
 
     public void setTitle(String title) {
@@ -88,7 +88,7 @@ class Event {
         this.date = date;
     }
 
-    public void createDictionary(){
+    public void createDictionary(){ // Creates a new dictionary, though this functionality is largely unfinished.
         dictionaryEvent = new Dictionary() {
             @Override
             public int size() {

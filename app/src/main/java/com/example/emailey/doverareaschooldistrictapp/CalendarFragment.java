@@ -197,19 +197,14 @@ public class CalendarFragment extends Fragment {
                 root.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Log.i ("click", currentEventsList.get(position).getTitle());
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                        builder.setMessage(currentEventsList.get(position).getDescription())
-                                .setTitle(currentEventsList.get(position).getTitle());
-                        AlertDialog dialog = builder.create();
-                        dialog.show();
+                        Log.i ("click", currentEventsList.get(position).getTitle()); // Retrieves the current event in the list of events
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity()); // Creates a new alert dialogue.
+                        builder.setMessage(currentEventsList.get(position).getDescription()) // Changes the message of the alert dialogue to the description of the event.
+                                .setTitle(currentEventsList.get(position).getTitle()); // Changes the title of the alert dialogue to the title of the event.
+                        AlertDialog dialog = builder.create(); // Creates the alert dialogue.
+                        dialog.show(); // Shows the alert dialogue
                     }
                 });
-                 /*
-                 * Add a touch/click event listener here to call to a event handler function
-                 * See what data is passed to the handler function to tell what event was selected
-                 * Grab the Event data and show a popup
-                 */
                 return root;
             }
 
